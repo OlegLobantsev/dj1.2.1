@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецепты</title>
+</head>
+<body>
+  <form action = '' method = 'get'>
+   <p>Выберите количество персон</p>
+      {{ instance.my_text_field|safe }}
+            <p><input type="range" step="1" min="1" max="100" name="servings"  value="1" onchange="document.getElementById('rangeValue').innerHTML = this.value;" list="rangeList"> <span id="rangeValue">1</span>
+              <button type="submit">Отправить</button>
+            </p>
+  </form>
+{% for ingredient, amount in recipe.items %}
+    <p>{{ ingredient }}: {{ amount }}</p>
+
+{% empty %}
+    <p>Такого рецепта не знаю :(</p>
+{% endfor %}
+<a href="../">Главная страница</a>
+</body>
+</html>
